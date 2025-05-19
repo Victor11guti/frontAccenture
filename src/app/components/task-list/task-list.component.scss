@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  height: 100%; /* o un valor fijo, e.g. 400px */
+}
+
+.viewport {
+  height: 100%;
+}
+
+/* estilo para ítems completados */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

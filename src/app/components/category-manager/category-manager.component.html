@@ -1,0 +1,28 @@
+<!-- src/app/components/category-manager/category-manager.component.html -->
+<ng-container *ngIf="showUI; else legacyUI">
+  <ion-item>
+    <ion-input
+      [(ngModel)]="newCategoryName"
+      placeholder="Nueva categoría"
+    ></ion-input>
+    <ion-button slot="end" (click)="addCategory()">➕</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let cat of categories$ | async">
+      <ion-label>{{ cat.name }}</ion-label>
+      <ion-button
+        fill="clear"
+        color="danger"
+        slot="end"
+        (click)="deleteCategory(cat.id)"
+      >
+        🗑
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ng-container>
+
+<ng-template #legacyUI>
+  <p>Flag desactivado: UI antigua.</p>
+</ng-template>
